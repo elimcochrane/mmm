@@ -1,0 +1,36 @@
+{
+  "total_posts": 209500,
+  "classification_method": "hybrid",
+  "themes_defined": [
+    "masculinity",
+    "politics",
+    "peterson",
+    "socialsciences",
+    "humanities",
+    "women",
+    "lgbtq",
+    "self-help"
+  ],
+  "primary_theme_distribution": {
+    "politics": 23892,
+    "peterson": 45730,
+    "Other": 85575,
+    "humanities": 10830,
+    "socialsciences": 11358,
+    "masculinity": 17887,
+    "self-help": 7278,
+    "lgbtq": 3165,
+    "women": 3785
+  },
+  "secondary_theme_distribution": {
+    "masculinity": 8030,
+    "politics": 8598,
+    "peterson": 15119,
+    "lgbtq": 1302,
+    "socialsciences": 5399,
+    "humanities": 7471,
+    "women": 4669,
+    "self-help": 6601
+  },
+  "posts_with_secondary_theme": 57189
+}

@@ -1,0 +1,917 @@
+{
+  "analysis_period": "2017-Q1 to 2024-Q4",
+  "theme_groups": {
+    "Identity Grounding": [
+      "self-help",
+      "humanities",
+      "socialsciences"
+    ],
+    "Central Topics": [
+      "peterson",
+      "masculinity",
+      "politics"
+    ],
+    "Out-groups": [
+      "lgbtq",
+      "women"
+    ]
+  },
+  "summary_statistics": {
+    "Central Topics": {
+      "avg_sentiment": 0.16541220229747555,
+      "avg_engagement": 0.005507831985571128,
+      "sentiment_trend": -0.001379477056212423,
+      "engagement_trend": 8.556661712598295e-05,
+      "sentiment_correlation": -0.31964604487882664,
+      "engagement_correlation": 0.722477461742973,
+      "total_posts": 87419,
+      "quarters_active": 32
+    },
+    "Identity Grounding": {
+      "avg_sentiment": 0.3581058862792671,
+      "avg_engagement": 0.0025870705330238086,
+      "sentiment_trend": 0.0007601790158629524,
+      "engagement_trend": 1.8930357124773384e-05,
+      "sentiment_correlation": 0.2610380859997622,
+      "engagement_correlation": 0.40083592503049603,
+      "total_posts": 29431,
+      "quarters_active": 32
+    },
+    "Out-groups": {
+      "avg_sentiment": 0.037210068273310096,
+      "avg_engagement": 0.008691408246901677,
+      "sentiment_trend": -0.002717386660520563,
+      "engagement_trend": 0.00021049707488287196,
+      "sentiment_correlation": -0.4028799308081072,
+      "engagement_correlation": 0.668962197008075,
+      "total_posts": 6941,
+      "quarters_active": 32
+    }
+  },
+  "quarterly_data": [
+    {
+      "quarter": "2017Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.175,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 19.3,
+      "avg_comments": 17.4,
+      "post_count": 827
+    },
+    {
+      "quarter": "2017Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.356,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 9.7,
+      "avg_comments": 11.9,
+      "post_count": 335
+    },
+    {
+      "quarter": "2017Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.245,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 12.5,
+      "avg_comments": 23.8,
+      "post_count": 30
+    },
+    {
+      "quarter": "2017Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.208,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 18.9,
+      "avg_comments": 17.0,
+      "post_count": 1177
+    },
+    {
+      "quarter": "2017Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.364,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 11.5,
+      "avg_comments": 12.7,
+      "post_count": 546
+    },
+    {
+      "quarter": "2017Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.061,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 16.1,
+      "avg_comments": 22.8,
+      "post_count": 58
+    },
+    {
+      "quarter": "2017Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.17,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 19.0,
+      "avg_comments": 19.3,
+      "post_count": 1396
+    },
+    {
+      "quarter": "2017Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.324,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 11.5,
+      "avg_comments": 11.9,
+      "post_count": 664
+    },
+    {
+      "quarter": "2017Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.008,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 21.7,
+      "avg_comments": 23.3,
+      "post_count": 81
+    },
+    {
+      "quarter": "2017Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.164,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 20.3,
+      "avg_comments": 20.2,
+      "post_count": 1571
+    },
+    {
+      "quarter": "2017Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.305,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 9.3,
+      "avg_comments": 9.5,
+      "post_count": 673
+    },
+    {
+      "quarter": "2017Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.047,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 26.8,
+      "avg_comments": 25.7,
+      "post_count": 113
+    },
+    {
+      "quarter": "2018Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.144,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 28.4,
+      "avg_comments": 20.1,
+      "post_count": 4881
+    },
+    {
+      "quarter": "2018Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.317,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 16.6,
+      "avg_comments": 10.3,
+      "post_count": 1459
+    },
+    {
+      "quarter": "2018Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.003,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 42.0,
+      "avg_comments": 28.0,
+      "post_count": 239
+    },
+    {
+      "quarter": "2018Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.155,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 29.3,
+      "avg_comments": 19.7,
+      "post_count": 5818
+    },
+    {
+      "quarter": "2018Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.322,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 14.8,
+      "avg_comments": 10.7,
+      "post_count": 1566
+    },
+    {
+      "quarter": "2018Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.008,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 29.3,
+      "avg_comments": 24.0,
+      "post_count": 270
+    },
+    {
+      "quarter": "2018Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.175,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 27.7,
+      "avg_comments": 17.2,
+      "post_count": 5391
+    },
+    {
+      "quarter": "2018Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.36,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 17.0,
+      "avg_comments": 10.3,
+      "post_count": 1659
+    },
+    {
+      "quarter": "2018Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.005,
+      "avg_engagement": 0.008,
+      "avg_upvotes": 49.8,
+      "avg_comments": 35.0,
+      "post_count": 363
+    },
+    {
+      "quarter": "2018Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.185,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 31.7,
+      "avg_comments": 18.7,
+      "post_count": 5006
+    },
+    {
+      "quarter": "2018Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.387,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 14.5,
+      "avg_comments": 8.9,
+      "post_count": 1537
+    },
+    {
+      "quarter": "2018Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.042,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 34.9,
+      "avg_comments": 26.8,
+      "post_count": 373
+    },
+    {
+      "quarter": "2019Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.154,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 40.9,
+      "avg_comments": 18.1,
+      "post_count": 4275
+    },
+    {
+      "quarter": "2019Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.331,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 14.4,
+      "avg_comments": 9.6,
+      "post_count": 1179
+    },
+    {
+      "quarter": "2019Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.073,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 46.6,
+      "avg_comments": 24.8,
+      "post_count": 349
+    },
+    {
+      "quarter": "2019Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.151,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 47.3,
+      "avg_comments": 21.5,
+      "post_count": 3712
+    },
+    {
+      "quarter": "2019Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.368,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 23.2,
+      "avg_comments": 10.1,
+      "post_count": 1194
+    },
+    {
+      "quarter": "2019Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.023,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 73.1,
+      "avg_comments": 36.7,
+      "post_count": 304
+    },
+    {
+      "quarter": "2019Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.156,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 42.5,
+      "avg_comments": 19.7,
+      "post_count": 3457
+    },
+    {
+      "quarter": "2019Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.345,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 19.5,
+      "avg_comments": 7.8,
+      "post_count": 1159
+    },
+    {
+      "quarter": "2019Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.026,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 81.2,
+      "avg_comments": 29.9,
+      "post_count": 268
+    },
+    {
+      "quarter": "2019Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.149,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 49.8,
+      "avg_comments": 20.4,
+      "post_count": 3113
+    },
+    {
+      "quarter": "2019Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.333,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 15.2,
+      "avg_comments": 7.6,
+      "post_count": 1089
+    },
+    {
+      "quarter": "2019Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.046,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 82.0,
+      "avg_comments": 35.8,
+      "post_count": 317
+    },
+    {
+      "quarter": "2020Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.166,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 55.8,
+      "avg_comments": 15.8,
+      "post_count": 2621
+    },
+    {
+      "quarter": "2020Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.342,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 24.5,
+      "avg_comments": 7.0,
+      "post_count": 977
+    },
+    {
+      "quarter": "2020Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.026,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 59.2,
+      "avg_comments": 25.1,
+      "post_count": 192
+    },
+    {
+      "quarter": "2020Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.161,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 56.2,
+      "avg_comments": 16.6,
+      "post_count": 3048
+    },
+    {
+      "quarter": "2020Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.347,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 21.7,
+      "avg_comments": 7.4,
+      "post_count": 1100
+    },
+    {
+      "quarter": "2020Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.089,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 50.7,
+      "avg_comments": 24.0,
+      "post_count": 186
+    },
+    {
+      "quarter": "2020Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.16,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 53.2,
+      "avg_comments": 15.6,
+      "post_count": 3043
+    },
+    {
+      "quarter": "2020Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.375,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 36.0,
+      "avg_comments": 10.4,
+      "post_count": 1114
+    },
+    {
+      "quarter": "2020Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.069,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 34.3,
+      "avg_comments": 18.6,
+      "post_count": 148
+    },
+    {
+      "quarter": "2020Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.195,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 57.7,
+      "avg_comments": 15.2,
+      "post_count": 2865
+    },
+    {
+      "quarter": "2020Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.377,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 20.8,
+      "avg_comments": 7.1,
+      "post_count": 1147
+    },
+    {
+      "quarter": "2020Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.07,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 98.8,
+      "avg_comments": 31.0,
+      "post_count": 147
+    },
+    {
+      "quarter": "2021Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.2,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 48.1,
+      "avg_comments": 17.9,
+      "post_count": 2982
+    },
+    {
+      "quarter": "2021Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.406,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 25.8,
+      "avg_comments": 7.5,
+      "post_count": 1225
+    },
+    {
+      "quarter": "2021Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.131,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 51.8,
+      "avg_comments": 25.2,
+      "post_count": 177
+    },
+    {
+      "quarter": "2021Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.22,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 51.6,
+      "avg_comments": 17.9,
+      "post_count": 2944
+    },
+    {
+      "quarter": "2021Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.365,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 24.5,
+      "avg_comments": 9.2,
+      "post_count": 1171
+    },
+    {
+      "quarter": "2021Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.049,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 78.6,
+      "avg_comments": 34.0,
+      "post_count": 156
+    },
+    {
+      "quarter": "2021Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.196,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 53.4,
+      "avg_comments": 20.8,
+      "post_count": 2486
+    },
+    {
+      "quarter": "2021Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.4,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 19.7,
+      "avg_comments": 12.0,
+      "post_count": 980
+    },
+    {
+      "quarter": "2021Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.086,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 66.0,
+      "avg_comments": 32.5,
+      "post_count": 139
+    },
+    {
+      "quarter": "2021Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.209,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 58.1,
+      "avg_comments": 25.0,
+      "post_count": 2472
+    },
+    {
+      "quarter": "2021Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.404,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 26.2,
+      "avg_comments": 12.4,
+      "post_count": 912
+    },
+    {
+      "quarter": "2021Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.068,
+      "avg_engagement": 0.012,
+      "avg_upvotes": 99.1,
+      "avg_comments": 42.4,
+      "post_count": 155
+    },
+    {
+      "quarter": "2022Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.192,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 45.9,
+      "avg_comments": 23.9,
+      "post_count": 2972
+    },
+    {
+      "quarter": "2022Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.388,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 19.7,
+      "avg_comments": 11.2,
+      "post_count": 997
+    },
+    {
+      "quarter": "2022Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.008,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 56.1,
+      "avg_comments": 47.6,
+      "post_count": 234
+    },
+    {
+      "quarter": "2022Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.17,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 48.9,
+      "avg_comments": 26.7,
+      "post_count": 2593
+    },
+    {
+      "quarter": "2022Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.383,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 11.4,
+      "avg_comments": 10.1,
+      "post_count": 890
+    },
+    {
+      "quarter": "2022Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.027,
+      "avg_engagement": 0.014,
+      "avg_upvotes": 95.0,
+      "avg_comments": 57.8,
+      "post_count": 286
+    },
+    {
+      "quarter": "2022Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.187,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 39.6,
+      "avg_comments": 27.8,
+      "post_count": 2967
+    },
+    {
+      "quarter": "2022Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.345,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 17.8,
+      "avg_comments": 12.1,
+      "post_count": 887
+    },
+    {
+      "quarter": "2022Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.037,
+      "avg_engagement": 0.013,
+      "avg_upvotes": 75.3,
+      "avg_comments": 55.1,
+      "post_count": 366
+    },
+    {
+      "quarter": "2022Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.187,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 46.6,
+      "avg_comments": 32.0,
+      "post_count": 2797
+    },
+    {
+      "quarter": "2022Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.369,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 17.8,
+      "avg_comments": 11.9,
+      "post_count": 930
+    },
+    {
+      "quarter": "2022Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.003,
+      "avg_engagement": 0.016,
+      "avg_upvotes": 104.8,
+      "avg_comments": 69.1,
+      "post_count": 304
+    },
+    {
+      "quarter": "2023Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.203,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 30.8,
+      "avg_comments": 25.9,
+      "post_count": 2526
+    },
+    {
+      "quarter": "2023Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.386,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 11.5,
+      "avg_comments": 11.9,
+      "post_count": 739
+    },
+    {
+      "quarter": "2023Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.063,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 53.4,
+      "avg_comments": 47.0,
+      "post_count": 316
+    },
+    {
+      "quarter": "2023Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.192,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 30.7,
+      "avg_comments": 22.2,
+      "post_count": 1992
+    },
+    {
+      "quarter": "2023Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.358,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 12.5,
+      "avg_comments": 9.0,
+      "post_count": 629
+    },
+    {
+      "quarter": "2023Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.06,
+      "avg_engagement": 0.013,
+      "avg_upvotes": 67.3,
+      "avg_comments": 60.8,
+      "post_count": 343
+    },
+    {
+      "quarter": "2023Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.203,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 13.0,
+      "avg_comments": 20.2,
+      "post_count": 2114
+    },
+    {
+      "quarter": "2023Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.383,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 3.6,
+      "avg_comments": 11.2,
+      "post_count": 744
+    },
+    {
+      "quarter": "2023Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.109,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 29.3,
+      "avg_comments": 44.9,
+      "post_count": 262
+    },
+    {
+      "quarter": "2023Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.167,
+      "avg_engagement": 0.005,
+      "avg_upvotes": 22.7,
+      "avg_comments": 27.0,
+      "post_count": 1711
+    },
+    {
+      "quarter": "2023Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.383,
+      "avg_engagement": 0.002,
+      "avg_upvotes": 12.3,
+      "avg_comments": 11.8,
+      "post_count": 548
+    },
+    {
+      "quarter": "2023Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": 0.01,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 40.1,
+      "avg_comments": 45.4,
+      "post_count": 228
+    },
+    {
+      "quarter": "2024Q1",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.068,
+      "avg_engagement": 0.006,
+      "avg_upvotes": 35.1,
+      "avg_comments": 28.6,
+      "post_count": 1164
+    },
+    {
+      "quarter": "2024Q1",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.322,
+      "avg_engagement": 0.004,
+      "avg_upvotes": 18.5,
+      "avg_comments": 17.4,
+      "post_count": 341
+    },
+    {
+      "quarter": "2024Q1",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.04,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 61.8,
+      "avg_comments": 36.1,
+      "post_count": 137
+    },
+    {
+      "quarter": "2024Q2",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.1,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 44.2,
+      "avg_comments": 29.3,
+      "post_count": 1154
+    },
+    {
+      "quarter": "2024Q2",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.338,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 13.3,
+      "avg_comments": 13.6,
+      "post_count": 362
+    },
+    {
+      "quarter": "2024Q2",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.058,
+      "avg_engagement": 0.011,
+      "avg_upvotes": 66.9,
+      "avg_comments": 50.6,
+      "post_count": 156
+    },
+    {
+      "quarter": "2024Q3",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.071,
+      "avg_engagement": 0.008,
+      "avg_upvotes": 54.6,
+      "avg_comments": 34.0,
+      "post_count": 1282
+    },
+    {
+      "quarter": "2024Q3",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.341,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 18.9,
+      "avg_comments": 14.2,
+      "post_count": 319
+    },
+    {
+      "quarter": "2024Q3",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.114,
+      "avg_engagement": 0.01,
+      "avg_upvotes": 58.2,
+      "avg_comments": 42.0,
+      "post_count": 139
+    },
+    {
+      "quarter": "2024Q4",
+      "theme_group": "Central Topics",
+      "avg_sentiment": 0.059,
+      "avg_engagement": 0.007,
+      "avg_upvotes": 41.8,
+      "avg_comments": 27.9,
+      "post_count": 1062
+    },
+    {
+      "quarter": "2024Q4",
+      "theme_group": "Identity Grounding",
+      "avg_sentiment": 0.336,
+      "avg_engagement": 0.003,
+      "avg_upvotes": 16.3,
+      "avg_comments": 14.4,
+      "post_count": 359
+    },
+    {
+      "quarter": "2024Q4",
+      "theme_group": "Out-groups",
+      "avg_sentiment": -0.049,
+      "avg_engagement": 0.009,
+      "avg_upvotes": 67.4,
+      "avg_comments": 32.0,
+      "post_count": 105
+    }
+  ]
+}

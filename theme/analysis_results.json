@@ -1,0 +1,541 @@
+{
+  "temporal_trends": {
+    "quarterly_summary": [
+      {
+        "quarter": "2017Q1",
+        "total_posts": 1192,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 49.83,
+        "theme_distribution": {
+          "humanities": 11.49,
+          "lgbtq": 1.26,
+          "masculinity": 8.22,
+          "peterson": 49.83,
+          "politics": 11.33,
+          "self-help": 2.27,
+          "socialsciences": 14.35,
+          "women": 1.26
+        }
+      },
+      {
+        "quarter": "2017Q2",
+        "total_posts": 1781,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 42.73,
+        "theme_distribution": {
+          "humanities": 12.24,
+          "lgbtq": 1.91,
+          "masculinity": 10.89,
+          "peterson": 42.73,
+          "politics": 12.46,
+          "self-help": 4.44,
+          "socialsciences": 13.98,
+          "women": 1.35
+        }
+      },
+      {
+        "quarter": "2017Q3",
+        "total_posts": 2141,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 39.7,
+        "theme_distribution": {
+          "humanities": 14.99,
+          "lgbtq": 1.54,
+          "masculinity": 9.57,
+          "peterson": 39.7,
+          "politics": 15.93,
+          "self-help": 4.11,
+          "socialsciences": 11.91,
+          "women": 2.24
+        }
+      },
+      {
+        "quarter": "2017Q4",
+        "total_posts": 2357,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 38.31,
+        "theme_distribution": {
+          "humanities": 12.26,
+          "lgbtq": 1.7,
+          "masculinity": 11.79,
+          "peterson": 38.31,
+          "politics": 16.55,
+          "self-help": 4.45,
+          "socialsciences": 11.84,
+          "women": 3.1
+        }
+      },
+      {
+        "quarter": "2018Q1",
+        "total_posts": 6579,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 47.89,
+        "theme_distribution": {
+          "humanities": 9.09,
+          "lgbtq": 1.38,
+          "masculinity": 11.49,
+          "peterson": 47.89,
+          "politics": 14.8,
+          "self-help": 4.27,
+          "socialsciences": 8.82,
+          "women": 2.25
+        }
+      },
+      {
+        "quarter": "2018Q2",
+        "total_posts": 7654,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 46.55,
+        "theme_distribution": {
+          "humanities": 8.19,
+          "lgbtq": 1.37,
+          "masculinity": 11.64,
+          "peterson": 46.55,
+          "politics": 17.82,
+          "self-help": 3.97,
+          "socialsciences": 8.3,
+          "women": 2.16
+        }
+      },
+      {
+        "quarter": "2018Q3",
+        "total_posts": 7413,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 41.98,
+        "theme_distribution": {
+          "humanities": 8.43,
+          "lgbtq": 1.67,
+          "masculinity": 12.29,
+          "peterson": 41.98,
+          "politics": 18.45,
+          "self-help": 4.38,
+          "socialsciences": 9.56,
+          "women": 3.22
+        }
+      },
+      {
+        "quarter": "2018Q4",
+        "total_posts": 6916,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 39.94,
+        "theme_distribution": {
+          "humanities": 9.09,
+          "lgbtq": 1.89,
+          "masculinity": 14.62,
+          "peterson": 39.94,
+          "politics": 17.83,
+          "self-help": 4.93,
+          "socialsciences": 8.2,
+          "women": 3.5
+        }
+      },
+      {
+        "quarter": "2019Q1",
+        "total_posts": 5803,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 36.41,
+        "theme_distribution": {
+          "humanities": 7.5,
+          "lgbtq": 2.64,
+          "masculinity": 16.84,
+          "peterson": 36.41,
+          "politics": 20.42,
+          "self-help": 5.34,
+          "socialsciences": 7.48,
+          "women": 3.38
+        }
+      },
+      {
+        "quarter": "2019Q2",
+        "total_posts": 5210,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 37.52,
+        "theme_distribution": {
+          "humanities": 8.46,
+          "lgbtq": 2.25,
+          "masculinity": 14.18,
+          "peterson": 37.52,
+          "politics": 19.54,
+          "self-help": 5.68,
+          "socialsciences": 8.77,
+          "women": 3.59
+        }
+      },
+      {
+        "quarter": "2019Q3",
+        "total_posts": 4884,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 34.28,
+        "theme_distribution": {
+          "humanities": 8.64,
+          "lgbtq": 2.11,
+          "masculinity": 17.01,
+          "peterson": 34.28,
+          "politics": 19.49,
+          "self-help": 6.43,
+          "socialsciences": 8.66,
+          "women": 3.38
+        }
+      },
+      {
+        "quarter": "2019Q4",
+        "total_posts": 4519,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 32.18,
+        "theme_distribution": {
+          "humanities": 8.1,
+          "lgbtq": 3.23,
+          "masculinity": 16.24,
+          "peterson": 32.18,
+          "politics": 20.47,
+          "self-help": 7.1,
+          "socialsciences": 8.9,
+          "women": 3.78
+        }
+      },
+      {
+        "quarter": "2020Q1",
+        "total_posts": 3790,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 36.17,
+        "theme_distribution": {
+          "humanities": 9.31,
+          "lgbtq": 2.06,
+          "masculinity": 15.44,
+          "peterson": 36.17,
+          "politics": 17.55,
+          "self-help": 6.99,
+          "socialsciences": 9.47,
+          "women": 3.01
+        }
+      },
+      {
+        "quarter": "2020Q2",
+        "total_posts": 4334,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 36.29,
+        "theme_distribution": {
+          "humanities": 10.29,
+          "lgbtq": 1.45,
+          "masculinity": 13.98,
+          "peterson": 36.29,
+          "politics": 20.05,
+          "self-help": 6.58,
+          "socialsciences": 8.51,
+          "women": 2.84
+        }
+      },
+      {
+        "quarter": "2020Q3",
+        "total_posts": 4305,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 35.12,
+        "theme_distribution": {
+          "humanities": 10.24,
+          "lgbtq": 1.39,
+          "masculinity": 13.84,
+          "peterson": 35.12,
+          "politics": 21.72,
+          "self-help": 7.39,
+          "socialsciences": 8.25,
+          "women": 2.04
+        }
+      },
+      {
+        "quarter": "2020Q4",
+        "total_posts": 4159,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 37.65,
+        "theme_distribution": {
+          "humanities": 10.51,
+          "lgbtq": 1.3,
+          "masculinity": 13.51,
+          "peterson": 37.65,
+          "politics": 17.72,
+          "self-help": 7.74,
+          "socialsciences": 9.33,
+          "women": 2.24
+        }
+      },
+      {
+        "quarter": "2021Q1",
+        "total_posts": 4384,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 35.95,
+        "theme_distribution": {
+          "humanities": 11.13,
+          "lgbtq": 1.55,
+          "masculinity": 13.14,
+          "peterson": 35.95,
+          "politics": 18.93,
+          "self-help": 6.68,
+          "socialsciences": 10.13,
+          "women": 2.49
+        }
+      },
+      {
+        "quarter": "2021Q2",
+        "total_posts": 4271,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 37.6,
+        "theme_distribution": {
+          "humanities": 10.56,
+          "lgbtq": 1.26,
+          "masculinity": 13.88,
+          "peterson": 37.6,
+          "politics": 17.44,
+          "self-help": 7.0,
+          "socialsciences": 9.86,
+          "women": 2.39
+        }
+      },
+      {
+        "quarter": "2021Q3",
+        "total_posts": 3605,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 35.73,
+        "theme_distribution": {
+          "humanities": 9.43,
+          "lgbtq": 1.33,
+          "masculinity": 14.45,
+          "peterson": 35.73,
+          "politics": 18.78,
+          "self-help": 7.43,
+          "socialsciences": 10.32,
+          "women": 2.52
+        }
+      },
+      {
+        "quarter": "2021Q4",
+        "total_posts": 3539,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 36.93,
+        "theme_distribution": {
+          "humanities": 8.99,
+          "lgbtq": 1.75,
+          "masculinity": 14.47,
+          "peterson": 36.93,
+          "politics": 18.45,
+          "self-help": 7.15,
+          "socialsciences": 9.64,
+          "women": 2.63
+        }
+      },
+      {
+        "quarter": "2022Q1",
+        "total_posts": 4203,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 37.14,
+        "theme_distribution": {
+          "humanities": 8.97,
+          "lgbtq": 2.64,
+          "masculinity": 14.49,
+          "peterson": 37.14,
+          "politics": 19.08,
+          "self-help": 6.19,
+          "socialsciences": 8.57,
+          "women": 2.93
+        }
+      },
+      {
+        "quarter": "2022Q2",
+        "total_posts": 3769,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 33.14,
+        "theme_distribution": {
+          "humanities": 8.46,
+          "lgbtq": 4.25,
+          "masculinity": 15.71,
+          "peterson": 33.14,
+          "politics": 19.95,
+          "self-help": 7.38,
+          "socialsciences": 7.77,
+          "women": 3.34
+        }
+      },
+      {
+        "quarter": "2022Q3",
+        "total_posts": 4220,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 34.81,
+        "theme_distribution": {
+          "humanities": 6.8,
+          "lgbtq": 4.76,
+          "masculinity": 16.18,
+          "peterson": 34.81,
+          "politics": 19.31,
+          "self-help": 5.43,
+          "socialsciences": 8.79,
+          "women": 3.91
+        }
+      },
+      {
+        "quarter": "2022Q4",
+        "total_posts": 4031,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 34.85,
+        "theme_distribution": {
+          "humanities": 6.85,
+          "lgbtq": 3.62,
+          "masculinity": 15.23,
+          "peterson": 34.85,
+          "politics": 19.3,
+          "self-help": 7.89,
+          "socialsciences": 8.34,
+          "women": 3.92
+        }
+      },
+      {
+        "quarter": "2023Q1",
+        "total_posts": 3581,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 33.68,
+        "theme_distribution": {
+          "humanities": 6.06,
+          "lgbtq": 5.33,
+          "masculinity": 16.67,
+          "peterson": 33.68,
+          "politics": 20.19,
+          "self-help": 6.39,
+          "socialsciences": 8.18,
+          "women": 3.49
+        }
+      },
+      {
+        "quarter": "2023Q2",
+        "total_posts": 2964,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 28.61,
+        "theme_distribution": {
+          "humanities": 7.19,
+          "lgbtq": 7.42,
+          "masculinity": 18.35,
+          "peterson": 28.61,
+          "politics": 20.24,
+          "self-help": 5.53,
+          "socialsciences": 8.5,
+          "women": 4.15
+        }
+      },
+      {
+        "quarter": "2023Q3",
+        "total_posts": 3120,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 28.49,
+        "theme_distribution": {
+          "humanities": 7.12,
+          "lgbtq": 4.52,
+          "masculinity": 18.69,
+          "peterson": 28.49,
+          "politics": 20.58,
+          "self-help": 7.44,
+          "socialsciences": 9.29,
+          "women": 3.88
+        }
+      },
+      {
+        "quarter": "2023Q4",
+        "total_posts": 2487,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 26.94,
+        "theme_distribution": {
+          "humanities": 6.19,
+          "lgbtq": 4.58,
+          "masculinity": 18.9,
+          "peterson": 26.94,
+          "politics": 22.96,
+          "self-help": 6.03,
+          "socialsciences": 9.81,
+          "women": 4.58
+        }
+      },
+      {
+        "quarter": "2024Q1",
+        "total_posts": 1642,
+        "dominant_theme": "politics",
+        "dominant_theme_percent": 29.96,
+        "theme_distribution": {
+          "humanities": 5.6,
+          "lgbtq": 5.3,
+          "masculinity": 16.57,
+          "peterson": 24.36,
+          "politics": 29.96,
+          "self-help": 5.48,
+          "socialsciences": 9.68,
+          "women": 3.05
+        }
+      },
+      {
+        "quarter": "2024Q2",
+        "total_posts": 1672,
+        "dominant_theme": "politics",
+        "dominant_theme_percent": 27.33,
+        "theme_distribution": {
+          "humanities": 5.32,
+          "lgbtq": 4.55,
+          "masculinity": 16.15,
+          "peterson": 25.54,
+          "politics": 27.33,
+          "self-help": 4.72,
+          "socialsciences": 11.6,
+          "women": 4.78
+        }
+      },
+      {
+        "quarter": "2024Q3",
+        "total_posts": 1740,
+        "dominant_theme": "politics",
+        "dominant_theme_percent": 33.45,
+        "theme_distribution": {
+          "humanities": 5.0,
+          "lgbtq": 4.31,
+          "masculinity": 14.25,
+          "peterson": 25.98,
+          "politics": 33.45,
+          "self-help": 4.31,
+          "socialsciences": 9.02,
+          "women": 3.68
+        }
+      },
+      {
+        "quarter": "2024Q4",
+        "total_posts": 1526,
+        "dominant_theme": "peterson",
+        "dominant_theme_percent": 28.24,
+        "theme_distribution": {
+          "humanities": 6.82,
+          "lgbtq": 4.06,
+          "masculinity": 13.89,
+          "peterson": 28.24,
+          "politics": 27.46,
+          "self-help": 4.98,
+          "socialsciences": 11.73,
+          "women": 2.82
+        }
+      }
+    ],
+    "theme_volatility": {
+      "humanities": 25.79,
+      "lgbtq": 57.07,
+      "masculinity": 17.32,
+      "peterson": 17.45,
+      "politics": 22.62,
+      "self-help": 23.77,
+      "socialsciences": 17.31,
+      "women": 27.48
+    }
+  },
+  "sentiment_relationships": {
+    "quarterly_correlations": {
+      "humanities": 0.266,
+      "lgbtq": -0.075,
+      "masculinity": -0.165,
+      "peterson": 0.441,
+      "politics": -0.564,
+      "self-help": 0.323,
+      "socialsciences": 0.045,
+      "women": -0.255
+    },
+    "significant_changes": []
+  }
+}

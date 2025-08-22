@@ -1,0 +1,276 @@
+{
+  "summary": {
+    "total_posts": 123791,
+    "high_engagement_posts": 12382,
+    "engagement_threshold": 0.009,
+    "themes_analyzed": 8
+  },
+  "theme_performance": [
+    {
+      "theme": "lgbtq",
+      "total_posts": 3163,
+      "high_engagement_posts": 804,
+      "high_engagement_rate": 0.254,
+      "share_of_all_viral_posts": 0.065,
+      "mean_sentiment": 0.006,
+      "mean_upvotes": 60.1,
+      "mean_comments": 45.7,
+      "mean_engagement_score": 0.01,
+      "max_engagement_score": 0.313,
+      "is_overperforming": true
+    },
+    {
+      "theme": "women",
+      "total_posts": 3778,
+      "high_engagement_posts": 598,
+      "high_engagement_rate": 0.158,
+      "share_of_all_viral_posts": 0.048,
+      "mean_sentiment": 0.057,
+      "mean_upvotes": 60.4,
+      "mean_comments": 32.7,
+      "mean_engagement_score": 0.008,
+      "max_engagement_score": 0.438,
+      "is_overperforming": false
+    },
+    {
+      "theme": "politics",
+      "total_posts": 23851,
+      "high_engagement_posts": 3565,
+      "high_engagement_rate": 0.149,
+      "share_of_all_viral_posts": 0.288,
+      "mean_sentiment": 0.064,
+      "mean_upvotes": 46.9,
+      "mean_comments": 29.5,
+      "mean_engagement_score": 0.007,
+      "max_engagement_score": 0.913,
+      "is_overperforming": false
+    },
+    {
+      "theme": "masculinity",
+      "total_posts": 17870,
+      "high_engagement_posts": 2063,
+      "high_engagement_rate": 0.115,
+      "share_of_all_viral_posts": 0.167,
+      "mean_sentiment": 0.172,
+      "mean_upvotes": 46.2,
+      "mean_comments": 21.3,
+      "mean_engagement_score": 0.006,
+      "max_engagement_score": 0.652,
+      "is_overperforming": false
+    },
+    {
+      "theme": "peterson",
+      "total_posts": 45698,
+      "high_engagement_posts": 3973,
+      "high_engagement_rate": 0.087,
+      "share_of_all_viral_posts": 0.321,
+      "mean_sentiment": 0.224,
+      "mean_upvotes": 34.2,
+      "mean_comments": 16.4,
+      "mean_engagement_score": 0.004,
+      "max_engagement_score": 0.538,
+      "is_overperforming": false
+    },
+    {
+      "theme": "self-help",
+      "total_posts": 7274,
+      "high_engagement_posts": 343,
+      "high_engagement_rate": 0.047,
+      "share_of_all_viral_posts": 0.028,
+      "mean_sentiment": 0.413,
+      "mean_upvotes": 24.2,
+      "mean_comments": 9.9,
+      "mean_engagement_score": 0.003,
+      "max_engagement_score": 0.351,
+      "is_overperforming": false
+    },
+    {
+      "theme": "humanities",
+      "total_posts": 10819,
+      "high_engagement_posts": 510,
+      "high_engagement_rate": 0.047,
+      "share_of_all_viral_posts": 0.041,
+      "mean_sentiment": 0.367,
+      "mean_upvotes": 18.7,
+      "mean_comments": 9.7,
+      "mean_engagement_score": 0.002,
+      "max_engagement_score": 0.311,
+      "is_overperforming": false
+    },
+    {
+      "theme": "socialsciences",
+      "total_posts": 11338,
+      "high_engagement_posts": 526,
+      "high_engagement_rate": 0.046,
+      "share_of_all_viral_posts": 0.042,
+      "mean_sentiment": 0.319,
+      "mean_upvotes": 13.5,
+      "mean_comments": 10.7,
+      "mean_engagement_score": 0.002,
+      "max_engagement_score": 0.264,
+      "is_overperforming": false
+    }
+  ],
+  "sample_high_engagement_posts": [
+    {
+      "theme": "politics",
+      "sentiment_score": -0.545,
+      "upvotes": 11558,
+      "comments": 1980,
+      "engagement_score": 0.913,
+      "date": "2020-06-14"
+    },
+    {
+      "theme": "masculinity",
+      "sentiment_score": 0.026,
+      "upvotes": 8448,
+      "comments": 1350,
+      "engagement_score": 0.652,
+      "date": "2020-06-13"
+    },
+    {
+      "theme": "masculinity",
+      "sentiment_score": 0.34,
+      "upvotes": 6183,
+      "comments": 1658,
+      "engagement_score": 0.583,
+      "date": "2019-06-11"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": 0.993,
+      "upvotes": 7079,
+      "comments": 1076,
+      "engagement_score": 0.538,
+      "date": "2020-04-06"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": -0.459,
+      "upvotes": 7663,
+      "comments": 853,
+      "engagement_score": 0.533,
+      "date": "2019-01-08"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": 0.0,
+      "upvotes": 2263,
+      "comments": 2335,
+      "engagement_score": 0.487,
+      "date": "2019-09-09"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": 0.0,
+      "upvotes": 6815,
+      "comments": 701,
+      "engagement_score": 0.465,
+      "date": "2019-05-09"
+    },
+    {
+      "theme": "women",
+      "sentiment_score": -0.296,
+      "upvotes": 4891,
+      "comments": 1165,
+      "engagement_score": 0.438,
+      "date": "2018-08-12"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": 0.557,
+      "upvotes": 2268,
+      "comments": 1918,
+      "engagement_score": 0.421,
+      "date": "2019-11-04"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": 0.0,
+      "upvotes": 4073,
+      "comments": 1293,
+      "engagement_score": 0.416,
+      "date": "2021-01-20"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": 0.735,
+      "upvotes": 251,
+      "comments": 2529,
+      "engagement_score": 0.413,
+      "date": "2019-04-19"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": -0.612,
+      "upvotes": 4488,
+      "comments": 1124,
+      "engagement_score": 0.411,
+      "date": "2018-02-08"
+    },
+    {
+      "theme": "women",
+      "sentiment_score": 0.586,
+      "upvotes": 5651,
+      "comments": 690,
+      "engagement_score": 0.402,
+      "date": "2019-10-08"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": 0.0,
+      "upvotes": 7118,
+      "comments": 198,
+      "engagement_score": 0.401,
+      "date": "2020-02-01"
+    },
+    {
+      "theme": "politics",
+      "sentiment_score": -0.631,
+      "upvotes": 3573,
+      "comments": 1256,
+      "engagement_score": 0.384,
+      "date": "2019-03-17"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": -0.511,
+      "upvotes": 4347,
+      "comments": 996,
+      "engagement_score": 0.383,
+      "date": "2020-09-01"
+    },
+    {
+      "theme": "women",
+      "sentiment_score": 0.0,
+      "upvotes": 1943,
+      "comments": 1750,
+      "engagement_score": 0.378,
+      "date": "2019-06-13"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": -0.944,
+      "upvotes": 0,
+      "comments": 2366,
+      "engagement_score": 0.374,
+      "date": "2018-10-18"
+    },
+    {
+      "theme": "women",
+      "sentiment_score": 0.0,
+      "upvotes": 3992,
+      "comments": 1049,
+      "engagement_score": 0.373,
+      "date": "2019-12-26"
+    },
+    {
+      "theme": "peterson",
+      "sentiment_score": 0.0,
+      "upvotes": 6449,
+      "comments": 238,
+      "engagement_score": 0.372,
+      "date": "2020-12-07"
+    }
+  ]
+}
