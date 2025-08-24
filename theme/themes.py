@@ -1,8 +1,3 @@
-"""
-Simplified Theme Classification Pipeline
-Focuses solely on classifying social media posts by themes using custom keywords
-"""
-
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -14,19 +9,11 @@ import json
 
 class ThemeClassifier:
     def __init__(self, custom_themes, method="hybrid"):
-        """
-        Initialize the theme classifier
-        
-        Args:
-            custom_themes (dict): Dictionary where keys are theme names and values are lists of keywords
-            method (str): Classification method - "keyword", "semantic", or "hybrid"
-        """
         self.custom_themes = custom_themes
         self.method = method
         self.embedding_model = None
         self.theme_embeddings = {}
         
-        # Initialize semantic model if needed
         if method in ["semantic", "hybrid"]:
             print("Loading sentence transformer model...")
             self.embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -36,22 +23,12 @@ class ThemeClassifier:
         print(f"Themes: {list(custom_themes.keys())}")
     
     def _compute_theme_embeddings(self):
-        """Compute embeddings for each theme based on their keywords"""
         for theme_name, keywords in self.custom_themes.items():
             theme_text = " ".join(keywords)
             embedding = self.embedding_model.encode([theme_text])[0]
             self.theme_embeddings[theme_name] = embedding
     
     def preprocess_texts(self, texts):
-        """
-        Clean and validate text data
-        
-        Args:
-            texts (list): List of text strings
-            
-        Returns:
-            list: Cleaned texts
-        """
         clean_texts = []
         for i, text in enumerate(texts):
             if isinstance(text, str) and len(text.strip()) > 0 and text.lower() not in ['nan', 'none']:
@@ -63,15 +40,6 @@ class ThemeClassifier:
         return clean_texts
     
     def assign_themes_keyword_based(self, texts):
-        """
-        Assign themes based on keyword matching
-        
-        Args:
-            texts (list): List of text strings
-            
-        Returns:
-            tuple: (primary_themes, secondary_themes, primary_scores, secondary_scores)
-        """
         primary_themes = []
         secondary_themes = []
         primary_scores = []
@@ -80,13 +48,11 @@ class ThemeClassifier:
         for text in texts:
             scores = defaultdict(int)
             
-            # Score each theme based on keyword presence
             for theme_name, keywords in self.custom_themes.items():
                 for keyword in keywords:
                     if re.search(r'\b' + re.escape(keyword.lower()) + r'\b', text.lower()):
                         scores[theme_name] += 1
             
-            # Get top 2 themes
             if scores:
                 sorted_themes = sorted(scores.items(), key=lambda x: x[1], reverse=True)
                 
@@ -108,18 +74,9 @@ class ThemeClassifier:
         return primary_themes, secondary_themes, primary_scores, secondary_scores
     
     def assign_themes_semantic_based(self, texts):
-        """
-        Assign themes based on semantic similarity with batch processing for large datasets
-        
-        Args:
-            texts (list): List of text strings
-            
-        Returns:
-            tuple: (primary_themes, secondary_themes, primary_scores, secondary_scores)
-        """
         print(f"Computing embeddings for {len(texts)} texts using batch processing...")
         
-        # Process in batches to avoid memory issues and show progress
+        # process in batches
         batch_size = 1000
         all_embeddings = []
         
@@ -133,7 +90,7 @@ class ThemeClassifier:
             batch_embeddings = self.embedding_model.encode(batch_texts, show_progress_bar=False)
             all_embeddings.append(batch_embeddings)
         
-        # Combine all embeddings
+        # combine embeddings
         text_embeddings = np.vstack(all_embeddings)
         print(f"Completed embedding computation. Shape: {text_embeddings.shape}")
         
@@ -146,15 +103,15 @@ class ThemeClassifier:
         theme_embedding_matrix = np.array([self.theme_embeddings[theme] for theme in theme_list])
         
         print("Computing theme similarities...")
-        # Process similarities in batches too for memory efficiency
+        # process similarities in batches too
         for i in range(0, len(text_embeddings), batch_size):
             batch_end = min(i + batch_size, len(text_embeddings))
             batch_embeddings = text_embeddings[i:batch_end]
             
-            if i % (batch_size * 10) == 0:  # Print progress every 10 batches
+            if i % (batch_size * 10) == 0:  # print progress every 10 batches
                 print(f"Processing similarities: {i+1}-{batch_end}/{len(text_embeddings)}")
             
-            # Compute similarities for this batch
+            # compute similarities for this batch
             batch_similarities = cosine_similarity(batch_embeddings, theme_embedding_matrix)
             
             for similarities in batch_similarities:
@@ -163,7 +120,7 @@ class ThemeClassifier:
                 primary_idx = top_2_indices[0]
                 primary_sim = similarities[primary_idx]
                 
-                if primary_sim > 0.3:  # Similarity threshold
+                if primary_sim > 0.3:  # similarity threshold
                     primary_themes.append(theme_list[primary_idx])
                     primary_scores.append(round(primary_sim, 3))
                 else:
@@ -188,26 +145,17 @@ class ThemeClassifier:
         return primary_themes, secondary_themes, primary_scores, secondary_scores
     
     def assign_themes_hybrid(self, texts):
-        """
-        Assign themes using both keyword and semantic matching with optimized processing
-        
-        Args:
-            texts (list): List of text strings
-            
-        Returns:
-            tuple: (primary_themes, secondary_themes, primary_scores, secondary_scores)
-        """
         print("Running hybrid classification (keyword + semantic)...")
         
-        # Run keyword-based first (fast)
+        # run keyword-based first
         print("Step 1/2: Keyword-based classification...")
         kw_primary, kw_secondary, kw_p_scores, kw_s_scores = self.assign_themes_keyword_based(texts)
         
-        # Run semantic-based second (slower, with batching)
+        # run semantic-based second (slower, with batching)
         print("Step 2/2: Semantic-based classification...")
         sem_primary, sem_secondary, sem_p_scores, sem_s_scores = self.assign_themes_semantic_based(texts)
         
-        # Combine results
+        # combine results
         print("Combining keyword and semantic results...")
         final_primary = []
         final_secondary = []
@@ -217,13 +165,13 @@ class ThemeClassifier:
         for i in range(len(texts)):
             combined_scores = defaultdict(float)
             
-            # Add keyword scores (weighted)
+            # add keyword scores (weighted)
             if kw_primary[i] != "Other":
                 combined_scores[kw_primary[i]] += kw_p_scores[i] * 0.1
             if kw_secondary[i] is not None:
                 combined_scores[kw_secondary[i]] += kw_s_scores[i] * 0.1
             
-            # Add semantic scores
+            # add semantic scores
             if sem_primary[i] != "Other":
                 combined_scores[sem_primary[i]] += sem_p_scores[i]
             if sem_secondary[i] is not None:
@@ -247,24 +195,14 @@ class ThemeClassifier:
                 final_p_scores.append(0)
                 final_s_scores.append(0)
         
-        print("Hybrid classification completed!")
+        print("Hybrid classification completed")
         return final_primary, final_secondary, final_p_scores, final_s_scores
     
     def classify_posts(self, df, text_columns):
-        """
-        Classify posts by theme
-        
-        Args:
-            df (pd.DataFrame): DataFrame containing posts
-            text_columns (list): List of text column names to analyze
-            
-        Returns:
-            pd.DataFrame: DataFrame with theme classifications added
-        """
-        print(f"\nCLASSIFYING {len(df)} POSTS BY THEME")
+        print(f"\nClassifying {len(df)} posts by theme")
         print("-" * 40)
         
-        # Combine text columns
+        # combine text columns
         combined_texts = []
         for _, row in df.iterrows():
             text_parts = []
@@ -274,10 +212,8 @@ class ThemeClassifier:
             combined_text = " ".join(text_parts)
             combined_texts.append(combined_text)
         
-        # Clean texts
         clean_texts = self.preprocess_texts(combined_texts)
         
-        # Run classification
         if self.method == "keyword":
             primary_themes, secondary_themes, primary_scores, secondary_scores = self.assign_themes_keyword_based(clean_texts)
         elif self.method == "semantic":
@@ -287,7 +223,6 @@ class ThemeClassifier:
         else:
             raise ValueError(f"Unknown method: {self.method}")
         
-        # Add results to dataframe
         df_result = df.copy()
         df_result['combined_text'] = combined_texts
         df_result['primary_theme'] = primary_themes
@@ -295,14 +230,12 @@ class ThemeClassifier:
         df_result['primary_theme_score'] = primary_scores
         df_result['secondary_theme_score'] = secondary_scores
         
-        # Print distribution
         self._print_theme_distribution(primary_themes, secondary_themes)
         
         return df_result
     
     def _print_theme_distribution(self, primary_themes, secondary_themes):
-        """Print theme distribution statistics"""
-        print("\nTHEME DISTRIBUTION:")
+        print("\nTheme Distribution:")
         print("-" * 20)
         
         primary_dist = Counter(primary_themes)
@@ -320,16 +253,6 @@ class ThemeClassifier:
                 print(f"  {theme}: {count} ({percentage:.1f}%)")
 
 def load_data(file_path, required_columns):
-    """
-    Load and validate data from file
-    
-    Args:
-        file_path (Path): Path to input file
-        required_columns (list): Required column names
-        
-    Returns:
-        pd.DataFrame: Loaded dataframe
-    """
     try:
         print(f"Loading data from: {file_path}")
         
@@ -342,7 +265,7 @@ def load_data(file_path, required_columns):
         
         print(f"Loaded {len(df)} rows and {len(df.columns)} columns")
         
-        # Check required columns
+        # check required columns
         missing_cols = [col for col in required_columns if col not in df.columns]
         if missing_cols:
             print(f"Available columns: {list(df.columns)}")
@@ -355,37 +278,26 @@ def load_data(file_path, required_columns):
         raise
 
 def run_theme_classification(config):
-    """
-    Run theme classification pipeline
-    
-    Args:
-        config (dict): Configuration dictionary
-    """
     try:
         print("STARTING THEME CLASSIFICATION PIPELINE")
         print("=" * 50)
         
-        # Load data
         df = load_data(config['input_file'], config['text_columns'])
         
-        # Initialize classifier
         classifier = ThemeClassifier(
             custom_themes=config['custom_themes'],
             method=config.get('method', 'hybrid')
         )
         
-        # Classify posts
         classified_df = classifier.classify_posts(df, config['text_columns'])
         
-        # Create output directory
         config['output_dir'].mkdir(exist_ok=True)
         
-        # Save results
+        # results
         output_file = config['output_dir'] / 'theme_classification.xlsx'
         classified_df.to_excel(output_file, index=False)
         print(f"\nResults saved to: {output_file}")
         
-        # Save theme distribution summary
         primary_dist = Counter(classified_df['primary_theme'])
         secondary_dist = Counter([theme for theme in classified_df['secondary_theme'] if theme is not None])
         
@@ -404,7 +316,7 @@ def run_theme_classification(config):
         print(f"Summary saved to: {summary_file}")
         
         print("\n" + "=" * 50)
-        print("THEME CLASSIFICATION COMPLETED SUCCESSFULLY!")
+        print("Theme Classification Completed")
         print("=" * 50)
         print(f"✓ Classified {len(classified_df)} posts")
         print(f"✓ Found {len(primary_dist)} unique primary themes")
@@ -413,8 +325,8 @@ def run_theme_classification(config):
         print(f"  - {output_file.name}")
         print(f"  - {summary_file.name}")
         
-        # Print top themes
-        print(f"\n📊 TOP PRIMARY THEMES:")
+        # print top themes
+        print(f"\nTop Primary Themes:")
         for theme, count in primary_dist.most_common(5):
             percentage = (count / len(classified_df)) * 100
             print(f"  {theme}: {count} posts ({percentage:.1f}%)")
@@ -428,7 +340,6 @@ def run_theme_classification(config):
         return pd.DataFrame()
 
 if __name__ == "__main__":
-    # Example configuration
     custom_themes = {
         'masculinity': ['men', 'male', 'masculinity', 'masculine', 'man', 'father', 'patriarchy', 'boy', 'boys'],
         'politics': ['government', 'politics', 'trump', 'biden', 'maga', 'left', 'right', 'liberal', 'conservative', 'lefty', 'racism', 'woke', 'sexism'],
@@ -440,14 +351,12 @@ if __name__ == "__main__":
         'self-help': ['help', 'helped', 'helps', 'confidence', 'strong', 'strength', 'gym', 'helping', 'self-help', 'self esteem', 'esteem', 'confident'],
     }
     
-    # Configuration
     config = {
-        'text_columns': ['title', 'selftext'],  # Columns containing text to analyze
-        'input_file': Path('peterson_2016-2024_cleaned.xlsx'),  # Input file path
-        'output_dir': Path('theme_results'),  # Output directory
-        'custom_themes': custom_themes,  # Theme definitions
-        'method': 'hybrid'  # Classification method: 'keyword', 'semantic', or 'hybrid'
+        'text_columns': ['title', 'selftext'],
+        'input_file': Path('peterson_2016-2024_cleaned.xlsx'),
+        'output_dir': Path('theme_results'),
+        'custom_themes': custom_themes,
+        'method': 'hybrid' # 'keyword', 'semantic', or 'hybrid'
     }
     
-    # Run classification
     result_df = run_theme_classification(config)

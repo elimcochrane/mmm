@@ -1,8 +1,3 @@
-"""
-Standalone VADER Sentiment Analysis Tool
-Analyzes Excel data and adds VADER sentiment classification columns
-"""
-
 import pandas as pd
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -17,15 +12,12 @@ warnings.filterwarnings('ignore')
 
 class VADERSentimentAnalyzer:
     def __init__(self):
-        """
-        Initialize the VADER Sentiment Analyzer
-        """
         self._setup_nltk()
         self.analyzer = SentimentIntensityAnalyzer()
-        print("VADER Sentiment Analyzer initialized successfully")
+        print("VADER initialized successfully")
     
     def _setup_nltk(self):
-        """Setup NLTK with SSL workaround"""
+        """nltk with ssl workaround"""
         try:
             _create_unverified_https_context = ssl._create_unverified_context
         except AttributeError:
@@ -34,39 +26,18 @@ class VADERSentimentAnalyzer:
             ssl._create_default_https_context = _create_unverified_https_context
         
         nltk.download('vader_lexicon', quiet=True)
-        print("NLTK VADER setup complete")
+        print("VADER setup complete")
     
     def _clean_text(self, text):
-        """
-        Clean text for analysis
-        
-        Args:
-            text (str): Raw text to clean
-            
-        Returns:
-            str: Cleaned text
-        """
         if pd.isna(text) or text == '':
             return ''
         
         text = str(text)
-        # Remove URLs
         text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
-        # Remove extra whitespace
         text = re.sub(r'\s+', ' ', text).strip()
         return text
     
     def _combine_text_columns(self, df, text_columns):
-        """
-        Combine multiple text columns into one for analysis
-        
-        Args:
-            df (pd.DataFrame): Input dataframe
-            text_columns (list): List of column names to combine
-            
-        Returns:
-            pd.Series: Combined text column
-        """
         combined_text = []
         for idx, row in df.iterrows():
             text_parts = []
@@ -80,32 +51,13 @@ class VADERSentimentAnalyzer:
         return pd.Series(combined_text, index=df.index)
     
     def _analyze_sentiment(self, text):
-        """
-        Analyze sentiment using VADER
-        
-        Args:
-            text (str): Text to analyze
-            
-        Returns:
-            dict: VADER sentiment scores
-        """
         if not text or text.strip() == '':
             return {'neg': 0.0, 'neu': 1.0, 'pos': 0.0, 'compound': 0.0}
         
-        # Limit text length for performance (VADER works well with full text)
         text_sample = text[:2000]
         return self.analyzer.polarity_scores(text_sample)
     
     def _get_classification(self, compound_score):
-        """
-        Convert VADER compound score to classification
-        
-        Args:
-            compound_score (float): VADER compound score
-            
-        Returns:
-            str: Sentiment classification
-        """
         if compound_score >= 0.05:
             return 'POSITIVE'
         elif compound_score <= -0.05:
@@ -114,29 +66,18 @@ class VADERSentimentAnalyzer:
             return 'NEUTRAL'
     
     def analyze_dataframe(self, df, text_columns, output_file=None):
-        """
-        Analyze sentiment for an entire dataframe
-        
-        Args:
-            df (pd.DataFrame): Input dataframe
-            text_columns (list): List of text column names to analyze
-            output_file (str/Path): Optional output file path
-            
-        Returns:
-            pd.DataFrame: Dataframe with sentiment analysis results
-        """
         print(f"Starting VADER sentiment analysis on {len(df)} rows...")
         print(f"Analyzing text from columns: {text_columns}")
         
-        # Validate columns exist
+        # validate columns exist
         missing_cols = [col for col in text_columns if col not in df.columns]
         if missing_cols:
             raise ValueError(f"Missing columns in dataframe: {missing_cols}")
         
-        # Create working copy
+        # create working copy
         result_df = df.copy()
         
-        # Combine text columns
+        # combine text columns
         print("Combining and cleaning text...")
         combined_text = self._combine_text_columns(df, text_columns)
         
@@ -150,17 +91,14 @@ class VADERSentimentAnalyzer:
             if (i + 1) % 500 == 0:
                 print(f"Processed {i + 1}/{len(combined_text)} texts")
         
-        # Add VADER results to dataframe
+        # vader -> dataframe + classification -> results
         sentiment_df = pd.DataFrame(sentiment_results)
         sentiment_df.columns = [f'sentiment_{col}' for col in sentiment_df.columns]
         
-        # Add classification based on compound score
         sentiment_df['sentiment_classification'] = sentiment_df['sentiment_compound'].apply(self._get_classification)
         
-        # Combine results
         result_df = pd.concat([result_df, sentiment_df], axis=1)
         
-        # Add the combined text column for reference
         result_df['text_analyzed'] = combined_text
         
         print(f"Sentiment analysis complete! Added columns:")
@@ -168,7 +106,7 @@ class VADERSentimentAnalyzer:
         for col in new_columns:
             print(f"  - {col}")
         
-        # Save results if output file specified
+        # save results
         if output_file:
             output_path = Path(output_file)
             if output_path.suffix.lower() == '.xlsx':
@@ -180,15 +118,6 @@ class VADERSentimentAnalyzer:
         return result_df
     
     def get_summary_stats(self, df):
-        """
-        Generate summary statistics for sentiment analysis results
-        
-        Args:
-            df (pd.DataFrame): Dataframe with sentiment analysis results
-            
-        Returns:
-            dict: Summary statistics
-        """
         if 'sentiment_compound' not in df.columns:
             print("No sentiment analysis results found in dataframe")
             return {}
@@ -204,12 +133,10 @@ class VADERSentimentAnalyzer:
             'neutral_count': (df['sentiment_classification'] == 'NEUTRAL').sum(),
         }
         
-        # Calculate percentages
         stats['positive_percentage'] = (stats['positive_count'] / stats['total_posts']) * 100
         stats['negative_percentage'] = (stats['negative_count'] / stats['total_posts']) * 100
         stats['neutral_percentage'] = (stats['neutral_count'] / stats['total_posts']) * 100
         
-        # Average component scores
         stats['mean_positive'] = df['sentiment_pos'].mean()
         stats['mean_negative'] = df['sentiment_neg'].mean()
         stats['mean_neutral'] = df['sentiment_neu'].mean()
@@ -217,14 +144,6 @@ class VADERSentimentAnalyzer:
         return stats
     
     def create_sentiment_timeline(self, df, date_column='date', output_file=None):
-        """
-        Create a timeline graph showing average sentiment over time
-        
-        Args:
-            df (pd.DataFrame): Dataframe with sentiment analysis results and date column
-            date_column (str): Name of the date column
-            output_file (str/Path): Optional file path to save the graph
-        """
         if 'sentiment_compound' not in df.columns:
             print("No sentiment analysis results found. Run analyze_dataframe() first.")
             return
@@ -235,13 +154,10 @@ class VADERSentimentAnalyzer:
         
         print("Creating sentiment timeline graph...")
         
-        # Convert date column to datetime
+        # date formatting
         df_plot = df.copy()
         try:
-            # Handle various date formats
             df_plot[date_column] = pd.to_datetime(df_plot[date_column], errors='coerce')
-            
-            # Remove rows with invalid dates
             df_plot = df_plot.dropna(subset=[date_column])
             
             if len(df_plot) == 0:
@@ -252,71 +168,59 @@ class VADERSentimentAnalyzer:
             print(f"Error parsing dates: {e}")
             return
         
-        # Group by date and calculate average sentiment
+        # group by date and calculate average sentiment
         daily_sentiment = df_plot.groupby(df_plot[date_column].dt.date).agg({
             'sentiment_compound': ['mean', 'count']
         }).round(3)
         
-        # Flatten column names
+        # some formatting
         daily_sentiment.columns = ['avg_sentiment', 'post_count']
         daily_sentiment = daily_sentiment.reset_index()
         daily_sentiment[date_column] = pd.to_datetime(daily_sentiment[date_column])
         
-        # Sort by date
         daily_sentiment = daily_sentiment.sort_values(date_column)
         
         print(f"Creating timeline from {daily_sentiment[date_column].min().strftime('%m/%d/%Y')} to {daily_sentiment[date_column].max().strftime('%m/%d/%Y')}")
         
-        # Create the plot
+        # visualization
         plt.figure(figsize=(14, 8))
         
-        # Main sentiment line
         plt.plot(daily_sentiment[date_column], daily_sentiment['avg_sentiment'], 
                 color='steelblue', linewidth=2, alpha=0.8, label='Daily Average Sentiment')
         
-        # Add a smoothed trend line (30-day rolling average)
         if len(daily_sentiment) > 30:
             rolling_avg = daily_sentiment.set_index(date_column)['avg_sentiment'].rolling(window=30, center=True).mean()
             plt.plot(rolling_avg.index, rolling_avg.values, 
                     color='red', linewidth=3, alpha=0.7, label='30-Day Trend')
         
-        # Add horizontal reference lines
         plt.axhline(y=0, color='gray', linestyle='-', alpha=0.3, linewidth=1)
         plt.axhline(y=0.05, color='green', linestyle='--', alpha=0.5, linewidth=1, label='Positive Threshold')
         plt.axhline(y=-0.05, color='red', linestyle='--', alpha=0.5, linewidth=1, label='Negative Threshold')
         
-        # Formatting
         plt.title('Average Sentiment Over Time', fontsize=16, fontweight='bold', pad=20)
         plt.xlabel('Date', fontsize=12)
         plt.ylabel('Average Sentiment Score', fontsize=12)
         plt.ylim(-1, 1)
         
-        # Format x-axis
         plt.gca().xaxis.set_major_locator(mdates.YearLocator())
         plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
         plt.gca().xaxis.set_minor_locator(mdates.MonthLocator((1, 7)))
-        
-        # Rotate x-axis labels for better readability
         plt.xticks(rotation=45)
         
-        # Add grid
         plt.grid(True, alpha=0.3)
         
-        # Add legend
         plt.legend(loc='upper right')
         
-        # Tight layout to prevent label cutoff
         plt.tight_layout()
         
-        # Save if output file specified
+        # save if output file specified
         if output_file:
             plt.savefig(output_file, dpi=300, bbox_inches='tight')
             print(f"Timeline graph saved to: {output_file}")
         
-        # Show the plot
         plt.show()
         
-        # Print some statistics about the timeline
+        # summary stats
         print(f"\nTimeline Statistics:")
         print(f"  Date range: {daily_sentiment[date_column].min().strftime('%m/%d/%Y')} to {daily_sentiment[date_column].max().strftime('%m/%d/%Y')}")
         print(f"  Total days with posts: {len(daily_sentiment)}")
@@ -327,24 +231,13 @@ class VADERSentimentAnalyzer:
         
         return daily_sentiment
     
+    # find most extreme sentiment scores
     def find_most_extreme(self, df, n=5):
-        """
-        Find the most positive and negative posts
-        
-        Args:
-            df (pd.DataFrame): Dataframe with sentiment analysis results
-            n (int): Number of examples to return for each category
-            
-        Returns:
-            dict: Most positive and negative examples
-        """
         if 'sentiment_compound' not in df.columns:
             return {}
         
-        # Get most positive
         most_positive = df.nlargest(n, 'sentiment_compound')[['text_analyzed', 'sentiment_compound', 'sentiment_classification']]
         
-        # Get most negative  
         most_negative = df.nsmallest(n, 'sentiment_compound')[['text_analyzed', 'sentiment_compound', 'sentiment_classification']]
         
         return {
@@ -353,37 +246,30 @@ class VADERSentimentAnalyzer:
         }
 
 def main():
-    """
-    Main function - example usage
-    """
-    # Configuration - modify these for your data
+    # customization
     config = {
-        'input_file': 'peterson_2016-2024_cleaned.xlsx',  # Change this to your Excel file
-        'text_columns': ['title', 'selftext'],  # Change these to your text columns
+        'input_file': 'peterson_2016-2024_cleaned.xlsx',
+        'text_columns': ['title', 'selftext'],
         'output_file': 'sentiment_classification_results.xlsx',
-        'date_column': 'date',  # Name of your date column
-        'create_timeline': True,  # Whether to create timeline graph
-        'timeline_output': 'sentiment_timeline.png',  # Timeline graph filename
-        'show_examples': True  # Show most positive/negative examples
+        'date_column': 'date',
+        'create_timeline': True,
+        'timeline_output': 'sentiment_timeline.png',
+        'show_examples': True
     }
     
     try:
-        # Load data
         print(f"Loading data from: {config['input_file']}")
         df = pd.read_excel(config['input_file'])
         print(f"Loaded {len(df)} rows with columns: {list(df.columns)}")
         
-        # Initialize analyzer
         analyzer = VADERSentimentAnalyzer()
         
-        # Run analysis
         results_df = analyzer.analyze_dataframe(
             df, 
             text_columns=config['text_columns'],
             output_file=config['output_file']
         )
         
-        # Print summary statistics
         print("\n" + "="*60)
         print("VADER SENTIMENT ANALYSIS SUMMARY")
         print("="*60)
@@ -407,7 +293,6 @@ def main():
             print(f"  Negative: {stats['mean_negative']:.3f}")
             print(f"  Neutral: {stats['mean_neutral']:.3f}")
         
-        # Show examples if requested
         if config.get('show_examples', False):
             print(f"\n" + "="*60)
             print("EXAMPLE POSTS")
@@ -431,7 +316,7 @@ def main():
                     print(f"     Text: {text_preview}")
                     print()
         
-        print(f"✅ Analysis complete! Results saved to: {config['output_file']}")
+        print(f"Results saved to: {config['output_file']}")
         print(f"\nNew columns added:")
         print(f"  - sentiment_neg: Negative sentiment score (0-1)")
         print(f"  - sentiment_neu: Neutral sentiment score (0-1)")  
@@ -441,13 +326,13 @@ def main():
         print(f"  - text_analyzed: Combined and cleaned text that was analyzed")
         
     except FileNotFoundError:
-        print(f"❌ Error: Could not find file '{config['input_file']}'")
+        print(f"Could not find file '{config['input_file']}'")
         print("Please check the file path and make sure the file exists.")
     except KeyError as e:
-        print(f"❌ Error: Column not found in Excel file: {e}")
+        print(f"Column not found in Excel file: {e}")
         print("Please check your column names in the config.")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         import traceback
         traceback.print_exc()
 

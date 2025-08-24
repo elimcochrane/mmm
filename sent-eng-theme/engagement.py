@@ -5,10 +5,7 @@ import seaborn as sns
 import json
 from sklearn.preprocessing import MinMaxScaler
 
-# Load data
 df = pd.read_excel('2016-2024_posts.xlsx')
-
-# Convert date and filter
 df['date'] = pd.to_datetime(df['date'], format='%m/%d/%Y', errors='coerce')
 df = df[df['date'] >= pd.Timestamp('2017-01-01')]
 df = df.dropna(subset=['date'])
@@ -18,41 +15,38 @@ df = df.rename(columns={
 })
 df = df[df['theme'] != 'Other']
 
-# Ensure numeric types for engagement metrics
+# ensure numeric engagement metrics
 df['score'] = pd.to_numeric(df['score'], errors='coerce')
 df['num_comments'] = pd.to_numeric(df['num_comments'], errors='coerce')
 df = df.dropna(subset=['score', 'num_comments'])
 
-# Diagnostic: Show column names and basic stats
+# show column names and basic stats
 print("Columns in DataFrame:", df.columns.tolist())
 print("Number of themes:", df['theme'].nunique())
 print("Total posts:", len(df))
 print("Upvotes stats - Min:", df['score'].min(), "Max:", df['score'].max(), "Mean:", df['score'].mean())
 print("Comments stats - Min:", df['num_comments'].min(), "Max:", df['num_comments'].max(), "Mean:", df['num_comments'].mean())
 
-# Calculate engagement score for each individual post
+# engagement
 scaler = MinMaxScaler()
 df[['upvotes_normalized', 'comments_normalized']] = scaler.fit_transform(
     df[['score', 'num_comments']]
 )
-
-# Create composite engagement score for each post
 df['post_engagement_score'] = (
     0.6 * df['upvotes_normalized'] + 
     0.4 * df['comments_normalized']  # Slightly favor upvotes as they're more common
 )
 
-# Find top 10% of posts by engagement
+# find high engagement posts
 top_10_percent_threshold = df['post_engagement_score'].quantile(0.9)
 df['is_top_10_percent_post'] = df['post_engagement_score'] >= top_10_percent_threshold
 
-# Get the high-engagement posts
 high_engagement_posts = df[df['is_top_10_percent_post']]
 
 print(f"\nTop 10% engagement threshold: {top_10_percent_threshold:.3f}")
-print(f"Number of high-engagement posts: {len(high_engagement_posts)}")
+print(f"Number of high engagement posts: {len(high_engagement_posts)}")
 
-# Now analyze themes based on their representation in high-engagement posts
+# analyze themes based on their representation in high engagement posts
 theme_analysis = df.groupby('theme').agg(
     total_posts=('theme', 'count'),
     high_engagement_posts=('is_top_10_percent_post', 'sum'),
@@ -63,28 +57,27 @@ theme_analysis = df.groupby('theme').agg(
     max_engagement_score=('post_engagement_score', 'max')
 ).reset_index()
 
-# Calculate what percentage of each theme's posts are high-engagement
+# calculate what % of each theme's posts are high engagement
 theme_analysis['high_engagement_rate'] = (
     theme_analysis['high_engagement_posts'] / theme_analysis['total_posts']
 )
 
-# Calculate what percentage of all high-engagement posts each theme represents
+# calculate what %  of all high engagement posts each theme represents
 total_high_engagement_posts = len(high_engagement_posts)
 theme_analysis['share_of_viral_posts'] = (
     theme_analysis['high_engagement_posts'] / total_high_engagement_posts
 )
 
-# Identify themes that are over-represented in high-engagement posts
+# Identify themes that are over-represented in high engagement posts
 expected_rate = 0.1  # 10% baseline
 theme_analysis['overperforming'] = theme_analysis['high_engagement_rate'] > expected_rate * 2  # 2x the baseline
 
-# Sort by high-engagement rate for better insights
+# Sort by high engagement rate
 theme_analysis = theme_analysis.sort_values('high_engagement_rate', ascending=False)
 
-# Create enhanced scatter plot
+# visualizations
+# 1 - scatter plot
 plt.figure(figsize=(16, 10))
-
-# Create the scatter plot with multiple information layers
 scatter = sns.scatterplot(
     data=theme_analysis,
     x='mean_sentiment',
@@ -95,10 +88,9 @@ scatter = sns.scatterplot(
     alpha=0.8
 )
 
-# Customize the color palette for engagement rate
 plt.colorbar(scatter.collections[0], label='High-Engagement Post Rate')
 
-# Label overperforming themes and themes with significant high-engagement presence
+# label overperforming themes
 significant_themes = theme_analysis[
     (theme_analysis['overperforming']) | 
     (theme_analysis['high_engagement_posts'] >= 5)  # At least 5 viral posts
@@ -124,9 +116,9 @@ plt.tight_layout()
 plt.savefig('sentiment_vs_engagement.png', dpi=300, bbox_inches='tight')
 plt.close()
 
-# Create a second visualization: High-engagement post distribution by theme
+# 2 - high engagement post distribution by theme
 plt.figure(figsize=(14, 8))
-top_themes = theme_analysis.head(15)  # Top 15 themes by high-engagement rate
+top_themes = theme_analysis.head(10)
 
 bars = plt.bar(range(len(top_themes)), top_themes['high_engagement_rate'], 
                color=plt.cm.viridis(top_themes['high_engagement_rate']))
@@ -135,7 +127,6 @@ plt.ylabel('High-Engagement Post Rate')
 plt.title('Top Themes by High-Engagement Post Rate (Top 10% of All Posts)')
 plt.xticks(range(len(top_themes)), top_themes['theme'], rotation=45, ha='right')
 
-# Add value labels on bars
 for i, (bar, rate, count) in enumerate(zip(bars, top_themes['high_engagement_rate'], top_themes['high_engagement_posts'])):
     plt.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.005,
              f'{rate:.1%}\n({count:.0f} posts)', 
@@ -145,7 +136,7 @@ plt.tight_layout()
 plt.savefig('high_engagement_themes.png', dpi=300, bbox_inches='tight')
 plt.close()
 
-# Save comprehensive analysis to JSON
+# save to json
 analysis_data = {
     "summary": {
         "total_posts": len(df),
@@ -171,7 +162,7 @@ for _, row in theme_analysis.iterrows():
         "is_overperforming": bool(row['overperforming'])
     })
 
-# Also save the actual high-engagement posts for reference
+# save the actual high engagement posts for reference
 analysis_data["sample_high_engagement_posts"] = []
 sample_posts = high_engagement_posts.nlargest(20, 'post_engagement_score')  # Top 20 posts
 for _, post in sample_posts.iterrows():
@@ -187,22 +178,22 @@ for _, post in sample_posts.iterrows():
 with open('engagement_analysis.json', 'w') as f:
     json.dump(analysis_data, f, indent=2)
 
-# Print summary
+# print summary
 print("\n" + "="*60)
-print("HIGH-ENGAGEMENT THEME ANALYSIS SUMMARY")
+print("High Engagement Themes")
 print("="*60)
 print(f"Analyzed {len(df):,} posts across {df['theme'].nunique()} themes")
-print(f"Identified {len(high_engagement_posts):,} high-engagement posts (top 10%)")
+print(f"Identified {len(high_engagement_posts):,} high engagement posts")
 print(f"Engagement threshold: {top_10_percent_threshold:.3f}")
 
-print(f"\nTop 10 themes by high-engagement post rate:")
+print(f"\nTop 10 themes by high engagement post rate:")
 top_10 = theme_analysis.head(10)
 for i, (_, theme) in enumerate(top_10.iterrows(), 1):
     print(f"{i:2d}. {theme['theme']:<25} {theme['high_engagement_rate']:>6.1%} "
           f"({theme['high_engagement_posts']:>3.0f}/{theme['total_posts']:>3.0f} posts)")
 
 overperforming = theme_analysis[theme_analysis['overperforming']]
-print(f"\nThemes significantly overperforming (>20% high-engagement rate): {len(overperforming)}")
+print(f"\nThemes significantly overperforming (>20% high engagement rate): {len(overperforming)}")
 for _, theme in overperforming.iterrows():
     print(f"  • {theme['theme']}: {theme['high_engagement_rate']:.1%} rate")
 

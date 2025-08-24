@@ -30,31 +30,28 @@ for theme, keywords in base_keyword_groups.items():
         expanded_keywords.extend(get_synonyms(word))
     keyword_groups[theme] = sorted(list(set(expanded_keywords)))
 
-# Save expanded keywords
+# save expanded keywords
 keywords_df = pd.DataFrame([(k, ', '.join(v)) for k, v in keyword_groups.items()], 
                          columns=['Theme', 'Expanded Keywords'])
 keywords_output_filename = 'expanded_keyword_lists.xlsx'
 keywords_df.to_excel(keywords_output_filename, index=False)
 print(f"\nExpanded keyword lists saved to {os.path.abspath(keywords_output_filename)}")
 
-# Get file path
+# get data + cleaning
 print("Please enter the path to your input file:")
 filename = input("File path: ").strip('"')
 
-# Read data and ensure numeric columns
 df = pd.read_excel(filename)
 df['text_combined'] = df['title'].str.lower() + ' ' + df['selftext'].str.lower()
 
-# Convert score and num_comments to numeric, coerce errors to NaN
 df['score'] = pd.to_numeric(df['score'], errors='coerce')
 df['num_comments'] = pd.to_numeric(df['num_comments'], errors='coerce')
-
-# Fill NaN values with 0 if desired (or you can drop them)
 df['score'] = df['score'].fillna(0)
 df['num_comments'] = df['num_comments'].fillna(0)
 
 total_posts = len(df)
 
+# results
 results = []
 for group_name, keywords in keyword_groups.items():
     pattern = '|'.join([re.escape(k) for k in keywords])
@@ -79,25 +76,25 @@ output_filename = 'keyword_analysis_with_synonyms.xlsx'
 results_df.to_excel(output_filename, index=False)
 print(f"\nResults saved to {os.path.abspath(output_filename)}")
 
-# Visualizations with blue gradient
+# visualizations
 blues = plt.cm.Blues(np.linspace(0.3, 1, len(keyword_groups)))
 engagement_colors = [blues[1], blues[-1]] 
 
 print("\nKey Metrics Visualization:")
 fig, axes = plt.subplots(1, 3, figsize=(21, 7)) 
 
-# Posts by theme
+# 1 - posts by theme
 results_df.plot(x='Theme', y='Number of Posts', kind='bar', ax=axes[0],
                title='Posts per Theme', color=blues, legend=False)
 axes[0].tick_params(axis='x', rotation=45)
 
-# Engagement metrics
+# 2 - engagement metrics
 results_df.plot(x='Theme', y=['Avg Upvotes', 'Avg Comments'], kind='bar', ax=axes[1],
                title='Engagement Metrics', color=engagement_colors, width=0.8)
 axes[1].tick_params(axis='x', rotation=45)
 axes[1].legend(loc='upper right')
 
-# Percentage of total
+# 3 - % of total
 results_df['Percent'] = results_df['Percent of Total'].str.replace('%', '').astype(float)
 wedges, texts = axes[2].pie(results_df['Percent'],
                           colors=blues,
@@ -122,7 +119,7 @@ print(f"\nVisualization saved to {os.path.abspath(figure_filename)}")
 
 plt.show()
 
-# Show expanded keyword lists
+# show expanded keyword lists
 print("\nExpanded Keyword Lists:")
 for theme, keywords in keyword_groups.items():
     print(f"\n{theme.upper()} ({len(keywords)} terms):")
